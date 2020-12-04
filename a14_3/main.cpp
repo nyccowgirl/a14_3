@@ -23,16 +23,29 @@
 #include <iostream>
 using namespace std;
 
+
 int smallestIndex(const int array[], int left, int right);
 void sortInt(int array[], int idx, int size);
 
+
 int main(int argc, const char * argv[]) {
-    int nums1[] = {9, 8, 3, 4, 5, 7, 2, 6};
-//    int nums2[] = {1};
-     
-    sortInt(nums1, 0, sizeof(nums1)/sizeof(nums1[0]));
+    // test cases
+//    int nums[] = {9, 8, 3, 4, 5, 7, 2, 6};
+//    int nums[] = {1};
+    int nums[] = {1, 2, 4, 3, 11, 9};
     
-    for (int num : nums1) {
+    cout << "Starting array: ";
+    
+    for (int num : nums) {
+        cout << num << ' ';
+    }
+    
+    cout << endl;
+     
+    sortInt(nums, 0, sizeof(nums)/sizeof(nums[0]));
+    cout << "Sorted array: ";
+    
+    for (int num : nums) {
         cout << num << ' ';
     }
     
@@ -45,6 +58,12 @@ int main(int argc, const char * argv[]) {
 
 
 
+
+/*
+ Definition of function smallestIndex that takes in an integer array and arguments for the
+ left and right bounds to determine the index with the smallest integer within those bounds,
+ inclusive. It retuns the index of the smallest integer in the array within those bounds.
+ */
 
 int smallestIndex(const int array[], int left, int right) {
     int smallIdx;
@@ -65,6 +84,12 @@ int smallestIndex(const int array[], int left, int right) {
 
 
 
+/*
+ Definition of function sortInt that takes in an integer array, the starting index and size
+ of the array, in order to sort the array in ascending order, using the smallestIndex
+ function.
+ */
+
 void sortInt(int array[], int idx, int size) {
     int smallIdx;
     
@@ -79,3 +104,18 @@ void sortInt(int array[], int idx, int size) {
         sortInt(array, ++idx, size);
     }
 }
+
+
+/*
+ Starting array: 9 8 3 4 5 7 2 6
+ Sorted array: 2 3 4 5 6 7 8 9
+ Program ended with exit code: 0
+ 
+ Starting array: 1
+ Sorted array: 1
+ Program ended with exit code: 0
+ 
+ Starting array: 1 2 4 3 11 9
+ Sorted array: 1 2 3 4 9 11
+ Program ended with exit code: 0
+ */
